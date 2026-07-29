@@ -1,0 +1,992 @@
+{
+  "modelVersion": 1,
+  "generatedBy": "nodespec",
+  "modelHash": "71eb58d5cadc652d754790ffba695ae157a1b5d01d90100fff816f7d64b5f966",
+  "nodes": [
+    {
+      "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+      "type": "waf",
+      "label": "AWS WAF (CloudFront + ALB)",
+      "technology": "aws-waf",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "70da5593-8b6c-4860-9f35-7ac865c080f7",
+          "name": "waf-rules",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "3fef9fc6f163bfd6775203859cc76a9a902c305674c230b0195672172f00e325"
+    },
+    {
+      "id": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "type": "secret-manager",
+      "label": "Secrets Manager (Auto-rotation 30d)",
+      "technology": "aws-secrets-manager",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "0b6d9efc-34a3-4209-b504-2b7545199ff7",
+          "name": "secrets-api",
+          "direction": "in"
+        },
+        {
+          "id": "ac30100a-1a88-4eca-9cbd-33679a3ccae2",
+          "name": "kms-api",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "372e961f2a78c9771f032f37d0950afefe4aa480ca980a3816145c598eac8ad5"
+    },
+    {
+      "id": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
+      "type": "auth-provider",
+      "label": "IAM (SSO + MFA, Scoped Roles)",
+      "technology": "aws-iam",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "7c181d1e-6893-4c4e-8414-36362d8743b6",
+          "name": "iam-authz",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "453c1c1925712491884a2c61b1dfb7a9224f5f04275037fdb059a5ef5abe0757"
+    },
+    {
+      "id": "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+      "type": "external-service",
+      "label": "Amazon SES (Transactional Email)",
+      "technology": "aws-ses",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "fd078b1a-7638-4932-8369-635742bd14cf",
+          "name": "ses-api",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "150d42b5f5bf8baabdddc3e4c9489ad4625cd52e63373aa4936e51ba2e77b5e2"
+    },
+    {
+      "id": "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+      "type": "cache",
+      "label": "ElastiCache Redis (Cluster Mode, Multi-AZ)",
+      "technology": "aws-elasticache",
+      "parentId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "ports": [
+        {
+          "id": "2289e79f-d77d-4dcd-8366-7f698c2cff25",
+          "name": "redis-6379",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "b9b3a995fec99902d25b39ead758f347c6182322cd4811c46a2e5a1985485010"
+    },
+    {
+      "id": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "type": "load-balancer",
+      "label": "Application Load Balancer",
+      "technology": "aws-elb",
+      "parentId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "ports": [
+        {
+          "id": "19c90195-d41a-4777-b1e2-ae0f38a8540b",
+          "name": "https-443",
+          "direction": "in"
+        },
+        {
+          "id": "d6e40ddc-fd57-4d90-95e6-3eb4722ac73a",
+          "name": "http-8080",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "d4ca5b40d232549993b6f6eea224f70d09f379a0dec64fd7534e55ae7d32a5e3"
+    },
+    {
+      "id": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "type": "logging",
+      "label": "CloudWatch Logs (JSON, 90d hot + Glacier)",
+      "technology": "aws-cloudwatch",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "4741c13b-ea80-40e3-a242-9bd5265f2233",
+          "name": "kms-api",
+          "direction": "out"
+        },
+        {
+          "id": "ec94397d-3bad-4a0c-aadb-12829811e12e",
+          "name": "logs-api",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "d035cfa31fef146829fd6efe8fed548d07749ae990e9b8628d989e3720523d60"
+    },
+    {
+      "id": "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+      "type": "monitoring",
+      "label": "AWS X-Ray (5% + 100% errors sampling)",
+      "technology": "aws-x-ray",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "5ce5e085-6628-4780-a999-8e4cf54cd508",
+          "name": "xray-api",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "52039ed08df0a3c4692bf13bfb06b340109ca14fef437cdf2d1fe88134e8c0e2"
+    },
+    {
+      "id": "739b8f9e-9c68-42d8-aca3-466f429e8029",
+      "type": "object-storage",
+      "label": "S3 User Files (Versioning, SSE-KMS)",
+      "technology": "aws-s3",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "7e5ab48a-2a6b-47c5-9142-7ca60c4aca40",
+          "name": "s3-presigned-url",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "d258d4288de5b8bd3a971275c46df31355599775aa0c5092bbba0f2b49b7f1ca"
+    },
+    {
+      "id": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "type": "vpc",
+      "label": "AWS VPC (Private Network)",
+      "technology": "aws-vpc",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [],
+      "contentHash": "e88f7711f2de8161357fa0e54d89db1d16d234433010e43ea487ea1643a5a5d7"
+    },
+    {
+      "id": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "type": "auth-provider",
+      "label": "KMS Customer Managed Key (CMK)",
+      "technology": "aws-kms",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "6aec9fa1-3259-4470-ac39-e1b7c94665d6",
+          "name": "kms-api",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "afe52d3267680de5fcc87c73b84922c28cf56e551815d0aff08bde306bd3f2fe"
+    },
+    {
+      "id": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "type": "serverless-function",
+      "label": "Lambda Email Worker (SQS → SES)",
+      "technology": "aws-lambda",
+      "parentId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "ports": [
+        {
+          "id": "77bf0747-f6ba-455e-8434-ddb13230413b",
+          "name": "cloudwatch-logs",
+          "direction": "out"
+        },
+        {
+          "id": "99a5d796-de23-4ffd-9ac9-2b73534586e2",
+          "name": "sqs-consumer",
+          "direction": "in"
+        },
+        {
+          "id": "bb2d5fdf-ed91-4abd-96d0-e9cd5defc912",
+          "name": "secrets-api",
+          "direction": "out"
+        },
+        {
+          "id": "be083a7d-9ce8-408b-87d8-5eda08bdca2f",
+          "name": "ses-api",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "6d1a206bfa1ee8d632c5f87385cb8fa5c6a218572c477d633c483f31b1b7febb"
+    },
+    {
+      "id": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "type": "aws",
+      "label": "AWS Cloud Platform",
+      "technology": "aws",
+      "ports": [],
+      "contentHash": "dc4183c08c46114c9445853384394035a40bb35e6983a6bc4955884d8c2714fe"
+    },
+    {
+      "id": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "type": "backend-service",
+      "label": "ECS Fargate Backend (Multi-AZ)",
+      "technology": "aws-fargate",
+      "parentId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "ports": [
+        {
+          "id": "1d372576-df3e-4744-90cf-16f06b337775",
+          "name": "http-8080",
+          "direction": "in"
+        },
+        {
+          "id": "a103bb9c-2572-4e52-bc1e-c76d62e125e1",
+          "name": "postgres",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "ce1a0313c46c808929a1121fea5afb16a1fa40b43ed6d5f7442e61ffdabe6bf3"
+    },
+    {
+      "id": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "type": "cdn",
+      "label": "CloudFront CDN",
+      "technology": "aws-cloudfront",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "0c4c2c7f-6306-4b4a-af82-531177b1d079",
+          "name": "https-443",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "cfdd4ea7960c8f9e937921c97adec1154c5aa72cd9bcd09e96b26fb6d34ac56b"
+    },
+    {
+      "id": "b6264032-4374-4191-a973-535b586cd757",
+      "type": "object-storage",
+      "label": "S3 Static Assets",
+      "technology": "aws-s3",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "8d81e7cb-ca87-4fb2-ad49-da519e53842d",
+          "name": "s3-api",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "ab009ac06a8422b195c3341fd1b94fc7e930bbcf042c619d88300986920a92e3"
+    },
+    {
+      "id": "b892d335-2866-437d-a241-f72ba71e050e",
+      "type": "frontend-app",
+      "label": "Frontend SPA (React)",
+      "technology": "react",
+      "ports": [
+        {
+          "id": "52bbac9c-34ab-4210-9287-d9e75485e410",
+          "name": "HTTP In",
+          "direction": "in"
+        },
+        {
+          "id": "57dc6fe5-41c4-4280-918b-cef9f0f636ee",
+          "name": "API Call",
+          "direction": "out"
+        },
+        {
+          "id": "742fac0c-de33-4eeb-afdb-be835aacf39a",
+          "name": "Service Import",
+          "direction": "in"
+        },
+        {
+          "id": "eabb9986-10c8-434a-8b58-7d886067f97e",
+          "name": "Module Dependency",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "d32f498f3eef52be355e5d4a9032a6eba13147c95a3e6a8e6c4b4a00cc9e9eb7"
+    },
+    {
+      "id": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
+      "type": "database",
+      "label": "Aurora PostgreSQL (Multi-AZ, Serverless v2)",
+      "technology": "aws-aurora",
+      "parentId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "ports": [
+        {
+          "id": "86e3a829-166b-4099-8bf3-72b8fd2628a8",
+          "name": "postgres-5432",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "c2c7c5d4d2c0ed44f3bee8599a6b45148f076915261738cc632564ebd9cd7225"
+    },
+    {
+      "id": "cf85b5b6-df58-46c2-a235-90c2c854d789",
+      "type": "topic",
+      "label": "SNS Alarm Topic (→ PagerDuty/Slack)",
+      "technology": "aws-sns",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "09ed9f6c-4783-4fb8-9416-e288ba0a531e",
+          "name": "notify-out",
+          "direction": "out"
+        },
+        {
+          "id": "42790659-7ace-47b6-a327-9aeb1af91895",
+          "name": "alarms-in",
+          "direction": "in"
+        }
+      ],
+      "contentHash": "9e1cdf8faf9883bed9527bb233e9ca48a262451b86e03ae8c3bccd8d52f9569b"
+    },
+    {
+      "id": "db2ed488-71f8-426c-b10b-68a612d6ada0",
+      "type": "queue",
+      "label": "SQS Email Queue (FIFO, DLQ)",
+      "technology": "aws-sqs",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "27cbd33d-8ddb-4ef9-bc2e-52941da0af9f",
+          "name": "sqs-api",
+          "direction": "in"
+        },
+        {
+          "id": "8c6b19f3-c58a-426a-a0cc-e872c034af8a",
+          "name": "sqs-api",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "2253138b9ffdbc8b65eee0fd596ff74f5215e345d258c291f10376e1c4a9fb62"
+    }
+  ],
+  "edges": [
+    {
+      "id": "00c8af96-45a9-4627-9e10-1b1dc6d4acf4",
+      "source": "b892d335-2866-437d-a241-f72ba71e050e",
+      "target": "b6264032-4374-4191-a973-535b586cd757",
+      "contractId": "0c9ff75a-52e9-4398-b34d-8a1f282c18dd",
+      "label": "Deploy Build Output",
+      "direction": "unidirectional",
+      "contentHash": "b4cb07860763de8f1b6db7527716d379d395708d087d586006c336b551d23cca"
+    },
+    {
+      "id": "0903ca05-6fda-4fa2-9ee5-8c7ce4b6d88b",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+      "contractId": "2f373c48-db17-47f4-b8c7-22d55bc295ae",
+      "label": "Cache-aside Pattern",
+      "direction": "bidirectional",
+      "contentHash": "4d2f3b980597c5d2fec0d296e4ca81bd19c0ce497d93747585b02a43b380bc5b"
+    },
+    {
+      "id": "095faf39-9c3c-471f-9754-6261753d11e0",
+      "source": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "target": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "contractId": "6ea33726-06b5-4803-9045-1dc9cf223b92",
+      "label": "Encrypt/Decrypt",
+      "direction": "bidirectional",
+      "contentHash": "aefff07def78e67ce1a70d138293decdc67fe23be847b4bd46bae012d87feccd"
+    },
+    {
+      "id": "0ae0ac03-e9a7-4a8b-b7e2-f939b4eae8b8",
+      "source": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "target": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+      "contractId": "0f494e21-40d6-4302-9bd2-7452db5842ab",
+      "label": "Attach WAF Rules",
+      "direction": "unidirectional",
+      "contentHash": "4a663d70c35a8168e429bba150d59cea431ab6a51ccf780d2e992d50b3abea0b"
+    },
+    {
+      "id": "1efce658-8fa4-4463-bd74-7fb2bb00a09d",
+      "source": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
+      "target": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "contractId": "f7e87f85-da92-4c01-8d64-581c7e7c1912",
+      "label": "Assume ECS Task Role",
+      "direction": "unidirectional",
+      "contentHash": "e843cf278b9dedbda0e08e5fb9231b1a0d4fbb687e395c7ad6572499a3116ab3"
+    },
+    {
+      "id": "2a1380cb-186a-42ed-bc82-b73c209e953e",
+      "source": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "target": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "contractId": "28589f18-597f-447e-bda4-27c93e1d3cf2",
+      "label": "Route API Requests",
+      "direction": "bidirectional",
+      "criticality": "required",
+      "contentHash": "2c7ad24bd13bc49371188ff814dbacd2a4854756e8bcbb2cda4a0d4fa635dbe7"
+    },
+    {
+      "id": "2bb77a97-3047-411a-af80-8bb78ffbde70",
+      "source": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "target": "cf85b5b6-df58-46c2-a235-90c2c854d789",
+      "contractId": "1b04d36c-316e-48f1-9956-cf9e212ad75a",
+      "label": "Publish Alerts",
+      "direction": "unidirectional",
+      "contentHash": "7790ff4685904eb025abd55be26a61c58e5a0d4e19721d888e1482d38a731ceb"
+    },
+    {
+      "id": "3374937b-0acc-4374-98d7-870e00162886",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+      "contractId": "e8b57127-e37b-412f-891c-4b535db38b97",
+      "label": "Send Traces",
+      "direction": "unidirectional",
+      "contentHash": "cd29e755563d55b633e4c476a8cbf82bf7ca6617cac88bcf8ff82612d3285ff7"
+    },
+    {
+      "id": "593d66e4-4ebb-482a-aaa4-235324a4d616",
+      "source": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "target": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "contractId": "28589f18-597f-447e-bda4-27c93e1d3cf2",
+      "label": "Route /api/* Requests",
+      "direction": "unidirectional",
+      "criticality": "required",
+      "contentHash": "bca870ceaf503de165c5fd8e762a591d1e4d490b6b2224ed85bd5bf9e3838dd4"
+    },
+    {
+      "id": "6dd31b16-955f-44fd-86c7-b1c054e687fa",
+      "source": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "target": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "contractId": "6ea33726-06b5-4803-9045-1dc9cf223b92",
+      "label": "Encrypt Logs",
+      "direction": "unidirectional",
+      "contentHash": "dcb34feeea8c27607954ac011accd5268cdfdabe2a52fc89f253e6d0955a3e27"
+    },
+    {
+      "id": "70f6f26b-47be-4a6a-900e-06d496f5eaec",
+      "source": "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+      "target": "cf85b5b6-df58-46c2-a235-90c2c854d789",
+      "contractId": "3434d4fa-f1cb-452f-b4e6-e246ce2e4910",
+      "label": "Bounce/Complaint Events",
+      "direction": "unidirectional",
+      "contentHash": "2324614152eb35b564c499952648a5931786b512760e9e10eaf819f7acdba50b"
+    },
+    {
+      "id": "8089ab6c-6bce-41d8-a61b-792916d06c1f",
+      "source": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "target": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+      "contractId": "0f494e21-40d6-4302-9bd2-7452db5842ab",
+      "label": "Attach WAF Rules",
+      "direction": "unidirectional",
+      "contentHash": "9f658bfd209332bdeb309f67ebd249c9e1f9de3ff68b1399caeecc8991293cdf"
+    },
+    {
+      "id": "81a19bbe-a576-425b-918f-ae35294aa7e4",
+      "source": "b892d335-2866-437d-a241-f72ba71e050e",
+      "target": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "contractId": "28589f18-597f-447e-bda4-27c93e1d3cf2",
+      "label": "Client Runtime API Calls",
+      "direction": "unidirectional",
+      "contentHash": "9b476c0b0b15429bcc36893b108b47783df1ec4d6e50af750231be66c1295fad"
+    },
+    {
+      "id": "85593090-9aa2-4928-9f30-70819b16c70d",
+      "source": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "target": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "contractId": "5f0f81c8-057f-4d4f-b52a-d27af4695f29",
+      "label": "Fetch SES Credentials",
+      "direction": "unidirectional",
+      "contentHash": "aeedb34692e4e8ada6ff5f92744b92c8c03712e179d6b3c2d1c0429d747dc023"
+    },
+    {
+      "id": "966cacbf-896e-41dd-8056-9f515117666b",
+      "source": "db2ed488-71f8-426c-b10b-68a612d6ada0",
+      "target": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "contractId": "6ea33726-06b5-4803-9045-1dc9cf223b92",
+      "label": "SSE-KMS Encryption",
+      "direction": "bidirectional",
+      "contentHash": "b8acf46b36b2f0b4c35bd3f2b8d263c8abdb8a50ad79bc9cc5b193be37b064eb"
+    },
+    {
+      "id": "a8b3f3f2-a80a-44f4-9a6a-aea9db4cbef9",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
+      "contractId": "70de2fbd-2d6f-4b01-a4d8-6060c575b13f",
+      "label": "Pooled Connection (via RDS Proxy config)",
+      "direction": "bidirectional",
+      "criticality": "required",
+      "contentHash": "1b87986a005d7fc43fbafe66e8eb0b77caa3c516fbf76b199ee7fe98ff379ac0"
+    },
+    {
+      "id": "aa089909-1e60-4c7e-b654-2afa9d07dcea",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "739b8f9e-9c68-42d8-aca3-466f429e8029",
+      "contractId": "c3953a31-f12f-478d-bcec-a80d4d9da31c",
+      "label": "Pre-signed Upload URLs",
+      "direction": "bidirectional",
+      "contentHash": "159582feed26a6c9023cc1c15b1d14d62f6b4195bff35d736a3cab596f969cba"
+    },
+    {
+      "id": "b147a84a-d77e-4fdf-9d18-086655180551",
+      "source": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "target": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "contractId": "c3d27631-3e47-4dff-991f-f80872ed69f6",
+      "label": "Log Execution",
+      "direction": "unidirectional",
+      "contentHash": "6ca3db451bc4779c8c85b4ca024a663558ec9d3d4bf8c056fa1933a3daf825b5"
+    },
+    {
+      "id": "b2159f50-b2e5-4b98-8f40-86bcff4c408f",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "contractId": "5f0f81c8-057f-4d4f-b52a-d27af4695f29",
+      "label": "Fetch DB Credentials",
+      "direction": "unidirectional",
+      "contentHash": "a29473d3f93e90d88993111ad27c7c2396f964ef2fa223daa5867bb1837ee8cb"
+    },
+    {
+      "id": "bb22202b-4fb1-4f24-a07e-c78cbab71032",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "db2ed488-71f8-426c-b10b-68a612d6ada0",
+      "contractId": "6b13518d-03a7-4b7c-91c9-d91ac165c2b6",
+      "label": "Queue Email Tasks",
+      "direction": "unidirectional",
+      "contentHash": "ac915dfde53c0a54c63129fd02eaec922b64d7e11c1e29ac91e24749fe48dd7a"
+    },
+    {
+      "id": "d2b857fd-a277-4788-b5d0-337b17c9b11b",
+      "source": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "target": "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+      "contractId": "e8b57127-e37b-412f-891c-4b535db38b97",
+      "label": "Send Traces",
+      "direction": "unidirectional",
+      "contentHash": "32ffcfdbebf312615c0294ebe6212674e78beee0f8b1bac79cdc0525c273f7b0"
+    },
+    {
+      "id": "d3640104-0a8f-4c9e-9adc-326eb7955347",
+      "source": "739b8f9e-9c68-42d8-aca3-466f429e8029",
+      "target": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "contractId": "6ea33726-06b5-4803-9045-1dc9cf223b92",
+      "label": "SSE-KMS Encryption",
+      "direction": "bidirectional",
+      "contentHash": "5bd3031b9990cbce8aeed3ea6d11b09e11bfdb229de69df75c5081ff50900868"
+    },
+    {
+      "id": "f1a520d9-3df1-4b4d-b152-3bd128f38f26",
+      "source": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "target": "b6264032-4374-4191-a973-535b586cd757",
+      "contractId": "78c78304-c380-4184-b022-3556fbbe67d1",
+      "label": "Serve Static Assets",
+      "direction": "unidirectional",
+      "contentHash": "baba7255283e5bde6a4ee564d255ae95ae40e91ee7aff617a3812e161542113f"
+    },
+    {
+      "id": "f3bfbc44-f80f-4c97-8f76-1b137026d106",
+      "source": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
+      "target": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "contractId": "f7e87f85-da92-4c01-8d64-581c7e7c1912",
+      "label": "Assume Lambda Execution Role",
+      "direction": "unidirectional",
+      "contentHash": "f8c1074970c1b80479987ba02a2af6df1531ea9ccbf715d1067cfc56157538e2"
+    },
+    {
+      "id": "f730e3c4-853f-4991-95c3-114e9b76888b",
+      "source": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "target": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "contractId": "c3d27631-3e47-4dff-991f-f80872ed69f6",
+      "label": "Stream Structured Logs",
+      "direction": "unidirectional",
+      "contentHash": "2cd3bfa226bf4b9b5d10131e6580457d15ea92725a6f3602a1e794f63dbef668"
+    },
+    {
+      "id": "fad29afa-dcd3-4580-adfe-ff96b60f5c25",
+      "source": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "target": "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+      "contractId": "78d8463c-2b94-465e-b921-436362f3929a",
+      "label": "Send Email",
+      "direction": "unidirectional",
+      "contentHash": "8c39331272f609bf9e29722fee09ccb05b23b24b6c2dc63685e7c43d22ca8919"
+    },
+    {
+      "id": "fdbbc77c-94bf-4a2f-b1fe-5abf7bb712cc",
+      "source": "db2ed488-71f8-426c-b10b-68a612d6ada0",
+      "target": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "contractId": "6b13518d-03a7-4b7c-91c9-d91ac165c2b6",
+      "label": "Consume Queue",
+      "direction": "unidirectional",
+      "contentHash": "024c7d21eafc27262cbb5636a91a7f8dca383d9edef0f1c1148be817ee5e9abb"
+    }
+  ],
+  "contracts": [
+    {
+      "id": "0c9ff75a-52e9-4398-b34d-8a1f282c18dd",
+      "kind": "custom",
+      "name": "Static Build Deployment (CI Upload to S3)",
+      "schemaHash": "5a2fb271dc116cb5f14aaac1abdfb2f75f461b16e285942b0d27be4f00bfabe0",
+      "contentHash": "b023f07837b5f5737774f59606bc63f99634c401a18b784d300c2938f3f7e610"
+    },
+    {
+      "id": "0f494e21-40d6-4302-9bd2-7452db5842ab",
+      "kind": "custom",
+      "name": "AWS WAF (Web Application Firewall)",
+      "schemaHash": "742cddcab27e258a6fc12e40f968185bb6249eb75752a7cfed25bcc4f0fbc3ed",
+      "contentHash": "e52f1974751f088e60e96fd31e4111c4834642718251a94cfb5434e85d1c3463"
+    },
+    {
+      "id": "1b04d36c-316e-48f1-9956-cf9e212ad75a",
+      "kind": "custom",
+      "name": "SNS Topic (CloudWatch Alarms → PagerDuty/Slack)",
+      "schemaHash": "b6a6f504d605d5cfc42bb045a3288a7c7dd68035c075230dc8787d2135088e0b",
+      "contentHash": "6be6ae0d9fbab51f02f3093570c229e578e9b7d5494fb268efcba294ec867b0a"
+    },
+    {
+      "id": "28589f18-597f-447e-bda4-27c93e1d3cf2",
+      "kind": "rest",
+      "name": "REST API (ALB to Backend)",
+      "specFormat": "openapi",
+      "schemaHash": "a06bcd9de34988d4263e61d427bfc52ed6036fdca08406d84fccfcc3ea5c890f",
+      "contentHash": "c60bbfb245affc7569dbb212d775bb12b980ae131e9440692725ad57b7a2d12e"
+    },
+    {
+      "id": "2f373c48-db17-47f4-b8c7-22d55bc295ae",
+      "kind": "custom",
+      "name": "Redis Cache (ElastiCache)",
+      "schemaHash": "561f555d67ccb248385d830b9b39c111fb941feb0bfb26da6f48fbd8b47d1faa",
+      "contentHash": "fe54b98c7e0fb37dd8103d817d3435f585050433e330bd7214821621062fa61d"
+    },
+    {
+      "id": "3434d4fa-f1cb-452f-b4e6-e246ce2e4910",
+      "kind": "custom",
+      "name": "SES Bounce/Complaint Notifications",
+      "schemaHash": "4adbd55c3f2d167aaa31e202f124e711d1b97501918b4f3e522c87c93cbe7164",
+      "contentHash": "909abcb826251336c4803087433c9d9ce705e1d5ec94c617aceff7bfb244e63d"
+    },
+    {
+      "id": "5f0f81c8-057f-4d4f-b52a-d27af4695f29",
+      "kind": "custom",
+      "name": "AWS Secrets Manager (Credentials)",
+      "schemaHash": "3c6b3e41428735a74edbfe1c02a00b21a55065ad6f97804fbcbcf6d2ece66953",
+      "contentHash": "e896e6569bb331cc0ad97d9cdf473227677ac70009e0a50aceddd888c4074fd7"
+    },
+    {
+      "id": "6b13518d-03a7-4b7c-91c9-d91ac165c2b6",
+      "kind": "amqp",
+      "name": "SQS Email Queue (Async)",
+      "schemaHash": "006c46ff0f7dbfe160c311c14be285805daade78e0652e714356e52afde96cac",
+      "contentHash": "fd34071ed1ad81f5ee2e30fc85f4475f04b4a219abf178a2c2978beb414dee2a"
+    },
+    {
+      "id": "6ea33726-06b5-4803-9045-1dc9cf223b92",
+      "kind": "custom",
+      "name": "KMS Data Encryption (At-Rest)",
+      "schemaHash": "75accf23e0ccd940c7decaed340f818a10913db6a48e7ce3c812b90d07145c33",
+      "contentHash": "83d5446826a5612fc292a8e44b9b54c3a27b852dce51f065ad53fd0b4ebb2d7f"
+    },
+    {
+      "id": "70de2fbd-2d6f-4b01-a4d8-6060c575b13f",
+      "kind": "sql",
+      "name": "PostgreSQL Connection (Aurora)",
+      "schemaHash": "42cc1a65907ac3974a05c9f12002cec6193d67215f2c9a03a4a96014d56f9729",
+      "contentHash": "1417671873822aad499eb2bd9587f571b1ea19f46826855649930ef60d8efe5e"
+    },
+    {
+      "id": "78c78304-c380-4184-b022-3556fbbe67d1",
+      "kind": "custom",
+      "name": "CloudFront Distribution (Static Assets)",
+      "schemaHash": "3f7ea901f7bdb7ab31ba5ac5931d5f88070f41d898a054f4d2b45ce71faca41e",
+      "contentHash": "15aee5ce871bd7a21bbc031cbf2fc196b6444bdca6a87b2cfc94cae60e90c1c8"
+    },
+    {
+      "id": "78d8463c-2b94-465e-b921-436362f3929a",
+      "kind": "custom",
+      "name": "Amazon SES (Email Sending)",
+      "schemaHash": "6579cb27f0ba346ddb3901b892b16624781029d058871bf70bfa15ef3d993223",
+      "contentHash": "6456c1dae07fa4ffc047d9bee7746e760af5562f97be9f36db5c362f563b75d7"
+    },
+    {
+      "id": "c3953a31-f12f-478d-bcec-a80d4d9da31c",
+      "kind": "custom",
+      "name": "S3 Pre-signed URLs (File Upload)",
+      "schemaHash": "4960282be34836854d680260c36b8cdd2b94a2004d004b8fa5c5ebdf075fe4a8",
+      "contentHash": "e79ee163d3bf1e49ad743b3a8a11df4dd5abd94a455928ce13e8b6bc81235926"
+    },
+    {
+      "id": "c3d27631-3e47-4dff-991f-f80872ed69f6",
+      "kind": "custom",
+      "name": "CloudWatch Logs (Structured JSON)",
+      "schemaHash": "c7bb1cd74332f2e7ede0fe8f9ed4435080876a1262611d1602c058c8984e8266",
+      "contentHash": "b2669150bee0b1328d348d620b62302fdf72ed148c9e38f1c2490ae37b1e1b8a"
+    },
+    {
+      "id": "e8b57127-e37b-412f-891c-4b535db38b97",
+      "kind": "custom",
+      "name": "AWS X-Ray (Distributed Tracing)",
+      "schemaHash": "850060d4931f35deca258b3270bbfbefc47ac48358df5d4b56527f6a63c0e8be",
+      "contentHash": "57f8284f470700b75b0e4f14ffb97e339acfcdd56687ee03b13eb5aaed9bbc79"
+    },
+    {
+      "id": "f7e87f85-da92-4c01-8d64-581c7e7c1912",
+      "kind": "custom",
+      "name": "IAM Role Assumption (Task/Execution Role)",
+      "schemaHash": "d6ebd5746241f9b9a573b2e3add5b5c9e4aa9dc1353627f0f5051e2604506a96",
+      "contentHash": "d5c0eab4489db826e7a23eb89478d7ddea3a631a98502c24661bcbf57ad7922f"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "0470bc78-f489-4c6f-901a-bd1301931cb7",
+      "nodeId": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
+      "path": ".nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md",
+      "kind": "task",
+      "contentHash": "000000000cd4508a"
+    },
+    {
+      "id": "14e6214d-0270-4117-b1fb-7be5cf3be3c9",
+      "nodeId": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "path": ".nodespec/tasks/application-load-balancer-50d764b4.task.md",
+      "kind": "task",
+      "contentHash": "000000004aafb852"
+    },
+    {
+      "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": ".nodespec/tests/REQ-004-frontend.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "2106549b-02e7-47cf-86da-f495e2515c75",
+      "nodeId": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "path": ".nodespec/tasks/cloudwatch-logs-json-90d-hot-glacier-51df189f.task.md",
+      "kind": "task",
+      "contentHash": "0000000054a096ca"
+    },
+    {
+      "id": "24746b22-6d51-4b20-ad2d-8825f4e89cf1",
+      "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "path": ".nodespec/tests/REQ-002-profile.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "3f20c5da-a542-46ce-b807-67517a256649",
+      "nodeId": "b6264032-4374-4191-a973-535b586cd757",
+      "path": ".nodespec/tasks/s3-static-assets-b6264032.task.md",
+      "kind": "task",
+      "contentHash": "0000000013ed2ec5"
+    },
+    {
+      "id": "4dff5275-1cf5-468f-a0bb-d9c3c39c3c75",
+      "nodeId": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "path": ".nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md",
+      "kind": "task",
+      "contentHash": "000000001df3a7c1"
+    },
+    {
+      "id": "5cd09ad1-0bc9-42e8-a323-7affdf1a520d",
+      "nodeId": "739b8f9e-9c68-42d8-aca3-466f429e8029",
+      "path": ".nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md",
+      "kind": "task",
+      "contentHash": "00000000155fa9c9"
+    },
+    {
+      "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": ".nodespec/tasks/frontend-spa-react-b892d335.task.md",
+      "kind": "task",
+      "contentHash": "000000002c9bbebb"
+    },
+    {
+      "id": "63f566ce-8083-43c3-a210-f1c4108ae6d3",
+      "nodeId": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+      "path": ".nodespec/tasks/aws-waf-cloudfront-alb-2ff39140.task.md",
+      "kind": "task",
+      "contentHash": "0000000079f00855"
+    },
+    {
+      "id": "6c955da8-3ca7-45e2-9f5b-95888ca82b58",
+      "nodeId": "cf85b5b6-df58-46c2-a235-90c2c854d789",
+      "path": ".nodespec/tasks/sns-alarm-topic-pagerduty-slack-cf85b5b6.task.md",
+      "kind": "task",
+      "contentHash": "000000003eeefc7c"
+    },
+    {
+      "id": "6ce20136-de10-483e-8fbb-5d8e8439ec48",
+      "nodeId": "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+      "path": ".nodespec/tasks/amazon-ses-transactional-email-48e9eea2.task.md",
+      "kind": "task",
+      "contentHash": "0000000027380190"
+    },
+    {
+      "id": "8ea6d6f8-819a-402a-be55-6252a4c5b46d",
+      "nodeId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "path": ".nodespec/tasks/aws-cloud-platform-9db50cb7.task.md",
+      "kind": "task"
+    },
+    {
+      "id": "905e8a0f-4ddf-43ea-a56f-87a62db70a5e",
+      "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "path": ".nodespec/tests/REQ-001-auth.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "996dda96-a778-4a04-a44e-86d439c82192",
+      "nodeId": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+      "path": ".nodespec/tests/REQ-003-api.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "b7e5f66f-dc89-47c9-9233-dd11ded46218",
+      "nodeId": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "path": ".nodespec/tasks/kms-customer-managed-key-cmk-87364769.task.md",
+      "kind": "task",
+      "contentHash": "0000000059c4b0dd"
+    },
+    {
+      "id": "bed9c597-db61-4c64-ba2d-fdeda2b9893d",
+      "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "path": ".nodespec/tasks/ecs-fargate-backend-multi-az-a25b66da.task.md",
+      "kind": "task",
+      "contentHash": "0000000020387219"
+    },
+    {
+      "id": "bf7ea208-59a3-405e-bb3f-804f5105deed",
+      "nodeId": "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+      "path": ".nodespec/tasks/elasticache-redis-cluster-mode-multi-az-492c203a.task.md",
+      "kind": "task",
+      "contentHash": "00000000742cfc52"
+    },
+    {
+      "id": "c4cec63c-3f59-4507-916d-7737dafffee9",
+      "nodeId": "795516b7-459f-447c-8154-a6cd845f46b1",
+      "path": ".nodespec/tasks/aws-vpc-private-network-795516b7.task.md",
+      "kind": "task"
+    },
+    {
+      "id": "c9307487-b926-4709-bc3d-2737540f6431",
+      "nodeId": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
+      "path": ".nodespec/tests/REQ-005-database.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "e3558381-0494-424c-b925-054ed07c4a42",
+      "nodeId": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+      "path": ".nodespec/tasks/cloudfront-cdn-b05afb1d.task.md",
+      "kind": "task",
+      "contentHash": "000000006fe8d1ac"
+    },
+    {
+      "id": "e6ab527e-96a4-4ddb-a6a8-451d0b3156c9",
+      "nodeId": "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+      "path": ".nodespec/tasks/aws-x-ray-5-100-errors-sampling-5eb8d118.task.md",
+      "kind": "task",
+      "contentHash": "000000002ebda385"
+    },
+    {
+      "id": "eaf7d8dd-d1fd-4f40-9387-cc67f896fdc8",
+      "nodeId": "db2ed488-71f8-426c-b10b-68a612d6ada0",
+      "path": ".nodespec/tasks/sqs-email-queue-fifo-dlq-db2ed488.task.md",
+      "kind": "task",
+      "contentHash": "000000005cae42f7"
+    },
+    {
+      "id": "f2520b7e-2d55-4e75-b92c-6f47f40d6f24",
+      "nodeId": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
+      "path": ".nodespec/tasks/aurora-postgresql-multi-az-serverless-v2-c5f78cd9.task.md",
+      "kind": "task",
+      "contentHash": "0000000015dc14da"
+    },
+    {
+      "id": "f5d39f5a-3050-41f6-9d54-b372e2c14289",
+      "nodeId": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "path": ".nodespec/tasks/lambda-email-worker-sqs-ses-8cb4acc9.task.md",
+      "kind": "task",
+      "contentHash": "00000000779fa97f"
+    }
+  ],
+  "mappings": [
+    {
+      "requirementId": "REQ-001",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-002",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-003",
+      "nodeIds": [
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-004",
+      "nodeIds": [
+        "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+        "b892d335-2866-437d-a241-f72ba71e050e"
+      ]
+    },
+    {
+      "requirementId": "REQ-005",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-006",
+      "nodeIds": [
+        "739b8f9e-9c68-42d8-aca3-466f429e8029",
+        "b6264032-4374-4191-a973-535b586cd757"
+      ]
+    },
+    {
+      "requirementId": "REQ-007",
+      "nodeIds": [
+        "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+        "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+        "db2ed488-71f8-426c-b10b-68a612d6ada0"
+      ]
+    },
+    {
+      "requirementId": "REQ-008",
+      "nodeIds": [
+        "492c203a-cb2e-40c8-a144-0ca0008fae6f"
+      ]
+    },
+    {
+      "requirementId": "REQ-009",
+      "nodeIds": [
+        "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-010",
+      "nodeIds": [
+        "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76"
+      ]
+    },
+    {
+      "requirementId": "REQ-011",
+      "nodeIds": [
+        "309abafe-578b-4eb4-bcf3-c029105a989f",
+        "87364769-d7f2-4655-8db0-4bd24895db84"
+      ]
+    },
+    {
+      "requirementId": "REQ-012",
+      "nodeIds": [
+        "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+        "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+        "cf85b5b6-df58-46c2-a235-90c2c854d789"
+      ]
+    },
+    {
+      "requirementId": "REQ-013",
+      "nodeIds": [
+        "739b8f9e-9c68-42d8-aca3-466f429e8029",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-016",
+      "nodeIds": [
+        "309abafe-578b-4eb4-bcf3-c029105a989f"
+      ]
+    },
+    {
+      "requirementId": "REQ-017",
+      "nodeIds": [
+        "31421050-9c6a-45cb-8ed7-b7523b9eec68"
+      ]
+    }
+  ]
+}
