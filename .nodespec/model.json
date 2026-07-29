@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "71eb58d5cadc652d754790ffba695ae157a1b5d01d90100fff816f7d64b5f966",
+  "modelHash": "ec4e620f2768842d0c8075e4ed0bb6fcea589c77782e0a4abe262a200e4c31a8",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -152,6 +152,26 @@
         }
       ],
       "contentHash": "d258d4288de5b8bd3a971275c46df31355599775aa0c5092bbba0f2b49b7f1ca"
+    },
+    {
+      "id": "77e37b60-9657-47da-9cf4-1376c7dce8f7",
+      "type": "api-gateway",
+      "label": "AWS API Gateway",
+      "technology": "aws-api-gateway",
+      "parentId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
+      "ports": [
+        {
+          "id": "9ca1287c-32ea-4bcd-9cad-a55553de16c3",
+          "name": "Public In",
+          "direction": "in"
+        },
+        {
+          "id": "fbd8b310-feaf-49b0-8d8c-2a36d3db290d",
+          "name": "Service Route",
+          "direction": "out"
+        }
+      ],
+      "contentHash": "a1884a47d7f6c48b31d2493e2b97ccc83618c5082a2f59d4fe551fd73d4cad53"
     },
     {
       "id": "795516b7-459f-447c-8154-a6cd845f46b1",
@@ -722,6 +742,18 @@
       "contentHash": "000000000cd4508a"
     },
     {
+      "id": "05b82e40-e0ea-49b6-bc53-000629591d50",
+      "nodeId": "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+      "path": ".nodespec/tests/REQ-007-email.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "0a7275d9-3f66-4ceb-888e-e930b1f487df",
+      "nodeId": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+      "path": ".nodespec/tests/REQ-010-network.tests.md",
+      "kind": "test-plan"
+    },
+    {
       "id": "14e6214d-0270-4117-b1fb-7be5cf3be3c9",
       "nodeId": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
       "path": ".nodespec/tasks/application-load-balancer-50d764b4.task.md",
@@ -762,11 +794,23 @@
       "contentHash": "000000001df3a7c1"
     },
     {
+      "id": "57fb6778-1ba4-4ca0-98df-a5af82ec1d3b",
+      "nodeId": "309abafe-578b-4eb4-bcf3-c029105a989f",
+      "path": ".nodespec/tests/REQ-016-secrets.tests.md",
+      "kind": "test-plan"
+    },
+    {
       "id": "5cd09ad1-0bc9-42e8-a323-7affdf1a520d",
       "nodeId": "739b8f9e-9c68-42d8-aca3-466f429e8029",
       "path": ".nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md",
       "kind": "task",
       "contentHash": "00000000155fa9c9"
+    },
+    {
+      "id": "5eb1545d-2e04-4288-a36b-37a9a2857ebb",
+      "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
+      "path": ".nodespec/tests/REQ-009-performance.tests.md",
+      "kind": "test-plan"
     },
     {
       "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
@@ -797,6 +841,18 @@
       "contentHash": "0000000027380190"
     },
     {
+      "id": "77b69cda-4757-46fd-9541-03af6783bf68",
+      "nodeId": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
+      "path": ".nodespec/tests/REQ-013-backup-dr.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "8a411db5-835f-4068-bc24-db5d547ae88c",
+      "nodeId": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
+      "path": ".nodespec/tests/REQ-017-iam.tests.md",
+      "kind": "test-plan"
+    },
+    {
       "id": "8ea6d6f8-819a-402a-be55-6252a4c5b46d",
       "nodeId": "9db50cb7-bc3b-46d2-bbcc-92edf4f6eb0c",
       "path": ".nodespec/tasks/aws-cloud-platform-9db50cb7.task.md",
@@ -812,6 +868,18 @@
       "id": "996dda96-a778-4a04-a44e-86d439c82192",
       "nodeId": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
       "path": ".nodespec/tests/REQ-003-api.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "9cd238d6-eeba-4b58-99ba-797adfbd4d37",
+      "nodeId": "87364769-d7f2-4655-8db0-4bd24895db84",
+      "path": ".nodespec/tests/REQ-011-encryption.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "b1eac290-fcaa-4a6c-95fa-9b1f7542cab2",
+      "nodeId": "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+      "path": ".nodespec/tests/REQ-008-ha.tests.md",
       "kind": "test-plan"
     },
     {
@@ -845,6 +913,18 @@
       "id": "c9307487-b926-4709-bc3d-2737540f6431",
       "nodeId": "c5f78cd9-d5b3-40fa-93ea-cf6cce453417",
       "path": ".nodespec/tests/REQ-005-database.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "c975c09e-1a95-4889-a924-df53eb7d26ee",
+      "nodeId": "739b8f9e-9c68-42d8-aca3-466f429e8029",
+      "path": ".nodespec/tests/REQ-006-storage.tests.md",
+      "kind": "test-plan"
+    },
+    {
+      "id": "d4e01a97-6451-4685-ae84-d81eb6f9efcd",
+      "nodeId": "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+      "path": ".nodespec/tests/REQ-012-observability.tests.md",
       "kind": "test-plan"
     },
     {

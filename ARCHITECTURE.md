@@ -7,22 +7,23 @@ component inventory, connection topology, and links to per-component task docume
 
 | Component | Role | Technology | Parent | Task Document | Test Plan |
 |-----------|------|------------|--------|---------------|-----------|
-| AWS WAF (CloudFront + ALB) | waf | aws-waf | AWS Cloud Platform | [`.nodespec/tasks/aws-waf-cloudfront-alb-2ff39140.task.md`](./.nodespec/tasks/aws-waf-cloudfront-alb-2ff39140.task.md) | --- |
-| Secrets Manager (Auto-rotation 30d) | secret-manager | aws-secrets-manager | AWS Cloud Platform | [`.nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md`](./.nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md) | --- |
-| IAM (SSO + MFA, Scoped Roles) | auth-provider | aws-iam | AWS Cloud Platform | [`.nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md`](./.nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md) | --- |
+| AWS WAF (CloudFront + ALB) | waf | aws-waf | AWS Cloud Platform | [`.nodespec/tasks/aws-waf-cloudfront-alb-2ff39140.task.md`](./.nodespec/tasks/aws-waf-cloudfront-alb-2ff39140.task.md) | [`.nodespec/tests/REQ-010-network.tests.md`](./.nodespec/tests/REQ-010-network.tests.md) |
+| Secrets Manager (Auto-rotation 30d) | secret-manager | aws-secrets-manager | AWS Cloud Platform | [`.nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md`](./.nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md) | [`.nodespec/tests/REQ-016-secrets.tests.md`](./.nodespec/tests/REQ-016-secrets.tests.md) |
+| IAM (SSO + MFA, Scoped Roles) | auth-provider | aws-iam | AWS Cloud Platform | [`.nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md`](./.nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md) | [`.nodespec/tests/REQ-017-iam.tests.md`](./.nodespec/tests/REQ-017-iam.tests.md) |
 | Amazon SES (Transactional Email) | external-service | aws-ses | AWS Cloud Platform | [`.nodespec/tasks/amazon-ses-transactional-email-48e9eea2.task.md`](./.nodespec/tasks/amazon-ses-transactional-email-48e9eea2.task.md) | --- |
-| ElastiCache Redis (Cluster Mode, Multi-AZ) | cache | aws-elasticache | AWS VPC (Private Network) | [`.nodespec/tasks/elasticache-redis-cluster-mode-multi-az-492c203a.task.md`](./.nodespec/tasks/elasticache-redis-cluster-mode-multi-az-492c203a.task.md) | --- |
+| ElastiCache Redis (Cluster Mode, Multi-AZ) | cache | aws-elasticache | AWS VPC (Private Network) | [`.nodespec/tasks/elasticache-redis-cluster-mode-multi-az-492c203a.task.md`](./.nodespec/tasks/elasticache-redis-cluster-mode-multi-az-492c203a.task.md) | [`.nodespec/tests/REQ-008-ha.tests.md`](./.nodespec/tests/REQ-008-ha.tests.md) |
 | Application Load Balancer | load-balancer | aws-elb | AWS VPC (Private Network) | [`.nodespec/tasks/application-load-balancer-50d764b4.task.md`](./.nodespec/tasks/application-load-balancer-50d764b4.task.md) | [`.nodespec/tests/REQ-003-api.tests.md`](./.nodespec/tests/REQ-003-api.tests.md) |
-| CloudWatch Logs (JSON, 90d hot + Glacier) | logging | aws-cloudwatch | AWS Cloud Platform | [`.nodespec/tasks/cloudwatch-logs-json-90d-hot-glacier-51df189f.task.md`](./.nodespec/tasks/cloudwatch-logs-json-90d-hot-glacier-51df189f.task.md) | --- |
+| CloudWatch Logs (JSON, 90d hot + Glacier) | logging | aws-cloudwatch | AWS Cloud Platform | [`.nodespec/tasks/cloudwatch-logs-json-90d-hot-glacier-51df189f.task.md`](./.nodespec/tasks/cloudwatch-logs-json-90d-hot-glacier-51df189f.task.md) | [`.nodespec/tests/REQ-012-observability.tests.md`](./.nodespec/tests/REQ-012-observability.tests.md) |
 | AWS X-Ray (5% + 100% errors sampling) | monitoring | aws-x-ray | AWS Cloud Platform | [`.nodespec/tasks/aws-x-ray-5-100-errors-sampling-5eb8d118.task.md`](./.nodespec/tasks/aws-x-ray-5-100-errors-sampling-5eb8d118.task.md) | --- |
-| S3 User Files (Versioning, SSE-KMS) | object-storage | aws-s3 | AWS Cloud Platform | [`.nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md`](./.nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md) | --- |
-| KMS Customer Managed Key (CMK) | auth-provider | aws-kms | AWS Cloud Platform | [`.nodespec/tasks/kms-customer-managed-key-cmk-87364769.task.md`](./.nodespec/tasks/kms-customer-managed-key-cmk-87364769.task.md) | --- |
-| Lambda Email Worker (SQS → SES) | serverless-function | aws-lambda | AWS VPC (Private Network) | [`.nodespec/tasks/lambda-email-worker-sqs-ses-8cb4acc9.task.md`](./.nodespec/tasks/lambda-email-worker-sqs-ses-8cb4acc9.task.md) | --- |
+| S3 User Files (Versioning, SSE-KMS) | object-storage | aws-s3 | AWS Cloud Platform | [`.nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md`](./.nodespec/tasks/s3-user-files-versioning-sse-kms-739b8f9e.task.md) | [`.nodespec/tests/REQ-006-storage.tests.md`](./.nodespec/tests/REQ-006-storage.tests.md) |
+| AWS API Gateway | api-gateway | aws-api-gateway | AWS Cloud Platform | --- | --- |
+| KMS Customer Managed Key (CMK) | auth-provider | aws-kms | AWS Cloud Platform | [`.nodespec/tasks/kms-customer-managed-key-cmk-87364769.task.md`](./.nodespec/tasks/kms-customer-managed-key-cmk-87364769.task.md) | [`.nodespec/tests/REQ-011-encryption.tests.md`](./.nodespec/tests/REQ-011-encryption.tests.md) |
+| Lambda Email Worker (SQS → SES) | serverless-function | aws-lambda | AWS VPC (Private Network) | [`.nodespec/tasks/lambda-email-worker-sqs-ses-8cb4acc9.task.md`](./.nodespec/tasks/lambda-email-worker-sqs-ses-8cb4acc9.task.md) | [`.nodespec/tests/REQ-007-email.tests.md`](./.nodespec/tests/REQ-007-email.tests.md) |
 | ECS Fargate Backend (Multi-AZ) | backend-service | aws-fargate | AWS VPC (Private Network) | [`.nodespec/tasks/ecs-fargate-backend-multi-az-a25b66da.task.md`](./.nodespec/tasks/ecs-fargate-backend-multi-az-a25b66da.task.md) | [`.nodespec/tests/REQ-002-profile.tests.md`](./.nodespec/tests/REQ-002-profile.tests.md) |
 | CloudFront CDN | cdn | aws-cloudfront | AWS Cloud Platform | [`.nodespec/tasks/cloudfront-cdn-b05afb1d.task.md`](./.nodespec/tasks/cloudfront-cdn-b05afb1d.task.md) | --- |
 | S3 Static Assets | object-storage | aws-s3 | AWS Cloud Platform | [`.nodespec/tasks/s3-static-assets-b6264032.task.md`](./.nodespec/tasks/s3-static-assets-b6264032.task.md) | --- |
 | Frontend SPA (React) | frontend-app | react | --- | [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md) | [`.nodespec/tests/REQ-004-frontend.tests.md`](./.nodespec/tests/REQ-004-frontend.tests.md) |
-| Aurora PostgreSQL (Multi-AZ, Serverless v2) | database | aws-aurora | AWS VPC (Private Network) | [`.nodespec/tasks/aurora-postgresql-multi-az-serverless-v2-c5f78cd9.task.md`](./.nodespec/tasks/aurora-postgresql-multi-az-serverless-v2-c5f78cd9.task.md) | [`.nodespec/tests/REQ-005-database.tests.md`](./.nodespec/tests/REQ-005-database.tests.md) |
+| Aurora PostgreSQL (Multi-AZ, Serverless v2) | database | aws-aurora | AWS VPC (Private Network) | [`.nodespec/tasks/aurora-postgresql-multi-az-serverless-v2-c5f78cd9.task.md`](./.nodespec/tasks/aurora-postgresql-multi-az-serverless-v2-c5f78cd9.task.md) | [`.nodespec/tests/REQ-013-backup-dr.tests.md`](./.nodespec/tests/REQ-013-backup-dr.tests.md) |
 | SNS Alarm Topic (→ PagerDuty/Slack) | topic | aws-sns | AWS Cloud Platform | [`.nodespec/tasks/sns-alarm-topic-pagerduty-slack-cf85b5b6.task.md`](./.nodespec/tasks/sns-alarm-topic-pagerduty-slack-cf85b5b6.task.md) | --- |
 | SQS Email Queue (FIFO, DLQ) | queue | aws-sqs | AWS Cloud Platform | [`.nodespec/tasks/sqs-email-queue-fifo-dlq-db2ed488.task.md`](./.nodespec/tasks/sqs-email-queue-fifo-dlq-db2ed488.task.md) | --- |
 
@@ -36,6 +37,7 @@ component inventory, connection topology, and links to per-component task docume
   - **CloudWatch Logs (JSON, 90d hot + Glacier)** [aws-cloudwatch] (logging)
   - **AWS X-Ray (5% + 100% errors sampling)** [aws-x-ray] (monitoring)
   - **S3 User Files (Versioning, SSE-KMS)** [aws-s3] (object-storage)
+  - **AWS API Gateway** [aws-api-gateway] (api-gateway)
   - **AWS VPC (Private Network)** [aws-vpc] (vpc)
     - **ElastiCache Redis (Cluster Mode, Multi-AZ)** [aws-elasticache] (cache)
     - **Application Load Balancer** [aws-elb] (load-balancer)
@@ -113,8 +115,18 @@ Use these as the primary brief when implementing or modifying a component.
 Each requirement has a test plan documenting acceptance criteria assessments,
 recommended test types, framework suggestions, and test scenarios.
 
+- **Lambda Email Worker (SQS → SES)**: [`.nodespec/tests/REQ-007-email.tests.md`](./.nodespec/tests/REQ-007-email.tests.md)
+- **AWS WAF (CloudFront + ALB)**: [`.nodespec/tests/REQ-010-network.tests.md`](./.nodespec/tests/REQ-010-network.tests.md)
 - **Frontend SPA (React)**: [`.nodespec/tests/REQ-004-frontend.tests.md`](./.nodespec/tests/REQ-004-frontend.tests.md)
 - **ECS Fargate Backend (Multi-AZ)**: [`.nodespec/tests/REQ-002-profile.tests.md`](./.nodespec/tests/REQ-002-profile.tests.md)
+- **Secrets Manager (Auto-rotation 30d)**: [`.nodespec/tests/REQ-016-secrets.tests.md`](./.nodespec/tests/REQ-016-secrets.tests.md)
+- **ECS Fargate Backend (Multi-AZ)**: [`.nodespec/tests/REQ-009-performance.tests.md`](./.nodespec/tests/REQ-009-performance.tests.md)
+- **Aurora PostgreSQL (Multi-AZ, Serverless v2)**: [`.nodespec/tests/REQ-013-backup-dr.tests.md`](./.nodespec/tests/REQ-013-backup-dr.tests.md)
+- **IAM (SSO + MFA, Scoped Roles)**: [`.nodespec/tests/REQ-017-iam.tests.md`](./.nodespec/tests/REQ-017-iam.tests.md)
 - **ECS Fargate Backend (Multi-AZ)**: [`.nodespec/tests/REQ-001-auth.tests.md`](./.nodespec/tests/REQ-001-auth.tests.md)
 - **Application Load Balancer**: [`.nodespec/tests/REQ-003-api.tests.md`](./.nodespec/tests/REQ-003-api.tests.md)
+- **KMS Customer Managed Key (CMK)**: [`.nodespec/tests/REQ-011-encryption.tests.md`](./.nodespec/tests/REQ-011-encryption.tests.md)
+- **ElastiCache Redis (Cluster Mode, Multi-AZ)**: [`.nodespec/tests/REQ-008-ha.tests.md`](./.nodespec/tests/REQ-008-ha.tests.md)
 - **Aurora PostgreSQL (Multi-AZ, Serverless v2)**: [`.nodespec/tests/REQ-005-database.tests.md`](./.nodespec/tests/REQ-005-database.tests.md)
+- **S3 User Files (Versioning, SSE-KMS)**: [`.nodespec/tests/REQ-006-storage.tests.md`](./.nodespec/tests/REQ-006-storage.tests.md)
+- **CloudWatch Logs (JSON, 90d hot + Glacier)**: [`.nodespec/tests/REQ-012-observability.tests.md`](./.nodespec/tests/REQ-012-observability.tests.md)
