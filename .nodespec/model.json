@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "ec4e620f2768842d0c8075e4ed0bb6fcea589c77782e0a4abe262a200e4c31a8",
+  "modelHash": "3c2ae1a15f69b993850177c22bda7baa7d705067f97689b979d6acbbcc2e9d51",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -778,6 +778,13 @@
       "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
       "path": ".nodespec/tests/REQ-002-profile.tests.md",
       "kind": "test-plan"
+    },
+    {
+      "id": "382609fe-eebd-4681-a711-3c7fba72d5d5",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/app.tsx",
+      "kind": "source",
+      "contentHash": "0000000000000000"
     },
     {
       "id": "3f20c5da-a542-46ce-b807-67517a256649",
