@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "da1817099b888587975a11efe6db88766659a90716bf082063e7668fc88834fa",
+  "modelHash": "6dd291ac0ef7a1bd8524e7a3509a9f3087d9b27405e4a8aa54ced46ce3e9e36d",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -761,13 +761,6 @@
       "nodeId": "b6264032-4374-4191-a973-535b586cd757",
       "path": ".nodespec/tasks/s3-static-assets-b6264032.task.md",
       "kind": "task"
-    },
-    {
-      "id": "445a3432-66d5-4869-94b1-cd61bb65808b",
-      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
-      "path": "src/appddd.tsx",
-      "kind": "source",
-      "contentHash": "0000000002c02753"
     },
     {
       "id": "4dff5275-1cf5-468f-a0bb-d9c3c39c3c75",
