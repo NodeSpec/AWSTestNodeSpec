@@ -757,6 +757,13 @@
       "kind": "test-plan"
     },
     {
+      "id": "382609fe-eebd-4681-a711-3c7fba72d5d5",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/appt.tsx",
+      "kind": "source",
+      "contentHash": "0000000000000000"
+    },
+    {
       "id": "3f20c5da-a542-46ce-b807-67517a256649",
       "nodeId": "b6264032-4374-4191-a973-535b586cd757",
       "path": ".nodespec/tasks/s3-static-assets-b6264032.task.md",
