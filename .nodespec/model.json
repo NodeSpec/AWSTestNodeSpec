@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "1218348e0e6da906c253785a01cc805be2e7f7cbbb830d814044e446282e4186",
+  "modelHash": "4a35e94e7014de9df571275b9ab033d533113b7a94d6fdda44ed94b28749c545",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -742,7 +742,8 @@
       "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tests/REQ-004-frontend.tests.md",
-      "kind": "test-plan"
+      "kind": "test-plan",
+      "contentHash": "00000000237cd980"
     },
     {
       "id": "2106549b-02e7-47cf-86da-f495e2515c75",
@@ -755,13 +756,6 @@
       "nodeId": "a25b66da-4930-40bb-ba40-cf15cd586846",
       "path": ".nodespec/tests/REQ-002-profile.tests.md",
       "kind": "test-plan"
-    },
-    {
-      "id": "382609fe-eebd-4681-a711-3c7fba72d5d5",
-      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
-      "path": "src/appt.tsx",
-      "kind": "source",
-      "contentHash": "0000000000000000"
     },
     {
       "id": "3f20c5da-a542-46ce-b807-67517a256649",
@@ -797,7 +791,8 @@
       "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tasks/frontend-spa-react-b892d335.task.md",
-      "kind": "task"
+      "kind": "task",
+      "contentHash": "000000002c9bbebb"
     },
     {
       "id": "63f566ce-8083-43c3-a210-f1c4108ae6d3",
