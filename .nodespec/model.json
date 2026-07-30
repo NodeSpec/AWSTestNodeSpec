@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "6a7503537ac34a60e2da6cb62e8abeac17dffe54da40d5a8a0d5fc4805fdf642",
+  "modelHash": "9edb14414298ef531630f6c48487633f7f549203dae2d58e2d66c8df109f06c3",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -715,13 +715,6 @@
   ],
   "artifacts": [
     {
-      "id": "0390f641-25fc-4979-be8b-ec849ffd3fda",
-      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
-      "path": "src/test5.tsx",
-      "kind": "source",
-      "contentHash": "00000000182e2fde"
-    },
-    {
       "id": "0470bc78-f489-4c6f-901a-bd1301931cb7",
       "nodeId": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
       "path": ".nodespec/tasks/iam-sso-mfa-scoped-roles-31421050.task.md",
@@ -749,8 +742,7 @@
       "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tests/REQ-004-frontend.tests.md",
-      "kind": "test-plan",
-      "contentHash": "00000000237cd980"
+      "kind": "test-plan"
     },
     {
       "id": "2106549b-02e7-47cf-86da-f495e2515c75",
