@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "c44c1dedd830f6dde818022d4af472a8c38371527697018d52c998ed3f77a399",
+  "modelHash": "da1817099b888587975a11efe6db88766659a90716bf082063e7668fc88834fa",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -733,13 +733,6 @@
       "kind": "test-plan"
     },
     {
-      "id": "0d07cbc6-1b0b-4774-bd84-dbfee84482d0",
-      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
-      "path": "src/appddd.tsx",
-      "kind": "source",
-      "contentHash": "0000000002c02753"
-    },
-    {
       "id": "14e6214d-0270-4117-b1fb-7be5cf3be3c9",
       "nodeId": "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
       "path": ".nodespec/tasks/application-load-balancer-50d764b4.task.md",
@@ -749,8 +742,7 @@
       "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tests/REQ-004-frontend.tests.md",
-      "kind": "test-plan",
-      "contentHash": "00000000237cd980"
+      "kind": "test-plan"
     },
     {
       "id": "2106549b-02e7-47cf-86da-f495e2515c75",
@@ -769,6 +761,13 @@
       "nodeId": "b6264032-4374-4191-a973-535b586cd757",
       "path": ".nodespec/tasks/s3-static-assets-b6264032.task.md",
       "kind": "task"
+    },
+    {
+      "id": "445a3432-66d5-4869-94b1-cd61bb65808b",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/appddd.tsx",
+      "kind": "source",
+      "contentHash": "0000000002c02753"
     },
     {
       "id": "4dff5275-1cf5-468f-a0bb-d9c3c39c3c75",
