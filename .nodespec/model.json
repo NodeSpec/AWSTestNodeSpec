@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "69b15773cedadfbac6bdda3490ed44270e08a5ca6d2f1b02bf35a20ad3fb5e62",
+  "modelHash": "6a7503537ac34a60e2da6cb62e8abeac17dffe54da40d5a8a0d5fc4805fdf642",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -714,6 +714,13 @@
     }
   ],
   "artifacts": [
+    {
+      "id": "0390f641-25fc-4979-be8b-ec849ffd3fda",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/test5.tsx",
+      "kind": "source",
+      "contentHash": "00000000182e2fde"
+    },
     {
       "id": "0470bc78-f489-4c6f-901a-bd1301931cb7",
       "nodeId": "31421050-9c6a-45cb-8ed7-b7523b9eec68",
