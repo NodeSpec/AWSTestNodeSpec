@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "4a35e94e7014de9df571275b9ab033d533113b7a94d6fdda44ed94b28749c545",
+  "modelHash": "66b0ea190b72bacb633eac4a91f0cb208e925c8381885eaecd4fb7751084e6e3",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -847,6 +847,13 @@
       "nodeId": "87364769-d7f2-4655-8db0-4bd24895db84",
       "path": ".nodespec/tests/REQ-011-encryption.tests.md",
       "kind": "test-plan"
+    },
+    {
+      "id": "ac24f2b2-a6d3-45c4-bf72-a50e5c7bd717",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/app.tsx",
+      "kind": "source",
+      "contentHash": "000000004a694f6f"
     },
     {
       "id": "b1eac290-fcaa-4a6c-95fa-9b1f7542cab2",
