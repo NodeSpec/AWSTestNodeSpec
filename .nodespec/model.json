@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "6dd291ac0ef7a1bd8524e7a3509a9f3087d9b27405e4a8aa54ced46ce3e9e36d",
+  "modelHash": "69b15773cedadfbac6bdda3490ed44270e08a5ca6d2f1b02bf35a20ad3fb5e62",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -742,7 +742,8 @@
       "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tests/REQ-004-frontend.tests.md",
-      "kind": "test-plan"
+      "kind": "test-plan",
+      "contentHash": "00000000237cd980"
     },
     {
       "id": "2106549b-02e7-47cf-86da-f495e2515c75",
@@ -767,6 +768,13 @@
       "nodeId": "309abafe-578b-4eb4-bcf3-c029105a989f",
       "path": ".nodespec/tasks/secrets-manager-auto-rotation-30d-309abafe.task.md",
       "kind": "task"
+    },
+    {
+      "id": "5618c06a-ea6e-4a71-a89a-0d020f4cce92",
+      "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
+      "path": "src/test.tsx",
+      "kind": "source",
+      "contentHash": "0000000006924e21"
     },
     {
       "id": "57fb6778-1ba4-4ca0-98df-a5af82ec1d3b",
