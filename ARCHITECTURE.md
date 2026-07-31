@@ -19,9 +19,10 @@ component inventory, connection topology, and links to per-component task docume
 | KMS Customer Managed Key (CMK) | auth-provider | aws-kms | AWS Cloud Platform | --- | --- |
 | Lambda Email Worker (SQS → SES) | serverless-function | aws-lambda | AWS VPC (Private Network) | --- | --- |
 | ECS Fargate Backend (Multi-AZ) | backend-service | aws-fargate | AWS VPC (Private Network) | --- | --- |
+| Src | logical.component-library | --- | --- | --- | --- |
 | CloudFront CDN | cdn | aws-cloudfront | AWS Cloud Platform | --- | --- |
 | S3 Static Assets | object-storage | aws-s3 | AWS Cloud Platform | --- | --- |
-| Frontend SPA (React) | frontend-app | react | --- | --- | --- |
+| Frontend SPA (React) | frontend-app | react | --- | [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md) | --- |
 | Aurora PostgreSQL (Multi-AZ, Serverless v2) | database | aws-aurora | AWS VPC (Private Network) | --- | --- |
 | SNS Alarm Topic (→ PagerDuty/Slack) | topic | aws-sns | AWS Cloud Platform | --- | --- |
 | SQS Email Queue (FIFO, DLQ) | queue | aws-sqs | AWS Cloud Platform | --- | --- |
@@ -47,6 +48,7 @@ component inventory, connection topology, and links to per-component task docume
   - **S3 Static Assets** [aws-s3] (object-storage)
   - **SNS Alarm Topic (→ PagerDuty/Slack)** [aws-sns] (topic)
   - **SQS Email Queue (FIFO, DLQ)** [aws-sqs] (queue)
+- Src (logical.component-library)
 - Frontend SPA (React) (frontend-app)
 
 ## Connection Topology
@@ -80,3 +82,11 @@ component inventory, connection topology, and links to per-component task docume
 | ECS Fargate Backend (Multi-AZ) | CloudWatch Logs (JSON, 90d hot + Glacier) | custom | CloudWatch Logs (Structured JSON) |
 | Lambda Email Worker (SQS → SES) | Amazon SES (Transactional Email) | custom | Amazon SES (Email Sending) |
 | SQS Email Queue (FIFO, DLQ) | Lambda Email Worker (SQS → SES) | amqp | SQS Email Queue (Async) |
+
+## Task Documents
+
+Each component has a task document containing the full implementation context:
+requirements, contracts, technology guidance, and connected components.
+Use these as the primary brief when implementing or modifying a component.
+
+- **Frontend SPA (React)**: [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md)

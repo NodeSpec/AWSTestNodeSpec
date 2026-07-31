@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "079851190d9d90d75ea4b58feb851f3bf21c44236077c33d82068a7380e458cc",
+  "modelHash": "c1eb94191c2160207b7925b1ad3cd49795ee02f97ce9312d02a08d90c03aac30",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -234,6 +234,13 @@
         }
       ],
       "contentHash": "ce1a0313c46c808929a1121fea5afb16a1fa40b43ed6d5f7442e61ffdabe6bf3"
+    },
+    {
+      "id": "a935f132-256b-42f8-8862-ee4a19ac88b9",
+      "type": "logical.component-library",
+      "label": "Src",
+      "ports": [],
+      "contentHash": "99fb7d90c0bfa7f4ec07abe6436bdb095ed6118417f830751e3d804db0bba93e"
     },
     {
       "id": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
@@ -772,7 +779,8 @@
       "id": "5618c06a-ea6e-4a71-a89a-0d020f4cce92",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": "src/test.tsx",
-      "kind": "source"
+      "kind": "source",
+      "contentHash": "0000000006924e21"
     },
     {
       "id": "57fb6778-1ba4-4ca0-98df-a5af82ec1d3b",
@@ -796,7 +804,8 @@
       "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tasks/frontend-spa-react-b892d335.task.md",
-      "kind": "task"
+      "kind": "task",
+      "contentHash": "000000002c9bbebb"
     },
     {
       "id": "63f566ce-8083-43c3-a210-f1c4108ae6d3",
@@ -955,6 +964,7 @@
     {
       "requirementId": "REQ-004",
       "nodeIds": [
+        "a935f132-256b-42f8-8862-ee4a19ac88b9",
         "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
         "b892d335-2866-437d-a241-f72ba71e050e"
       ]
