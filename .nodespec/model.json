@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "9edb14414298ef531630f6c48487633f7f549203dae2d58e2d66c8df109f06c3",
+  "modelHash": "079851190d9d90d75ea4b58feb851f3bf21c44236077c33d82068a7380e458cc",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -772,8 +772,7 @@
       "id": "5618c06a-ea6e-4a71-a89a-0d020f4cce92",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": "src/test.tsx",
-      "kind": "source",
-      "contentHash": "0000000006924e21"
+      "kind": "source"
     },
     {
       "id": "57fb6778-1ba4-4ca0-98df-a5af82ec1d3b",
@@ -797,8 +796,7 @@
       "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tasks/frontend-spa-react-b892d335.task.md",
-      "kind": "task",
-      "contentHash": "000000002c9bbebb"
+      "kind": "task"
     },
     {
       "id": "63f566ce-8083-43c3-a210-f1c4108ae6d3",
