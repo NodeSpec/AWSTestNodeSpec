@@ -22,7 +22,7 @@ component inventory, connection topology, and links to per-component task docume
 | Src | logical.component-library | --- | --- | --- | --- |
 | CloudFront CDN | cdn | aws-cloudfront | AWS Cloud Platform | --- | --- |
 | S3 Static Assets | object-storage | aws-s3 | AWS Cloud Platform | --- | --- |
-| Frontend SPA (React) | frontend-app | react | --- | [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md) | --- |
+| Frontend SPA (React) | frontend-app | react | --- | [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md) | [`.nodespec/tests/REQ-004-frontend.tests.md`](./.nodespec/tests/REQ-004-frontend.tests.md) |
 | Aurora PostgreSQL (Multi-AZ, Serverless v2) | database | aws-aurora | AWS VPC (Private Network) | --- | --- |
 | SNS Alarm Topic (→ PagerDuty/Slack) | topic | aws-sns | AWS Cloud Platform | --- | --- |
 | SQS Email Queue (FIFO, DLQ) | queue | aws-sqs | AWS Cloud Platform | --- | --- |
@@ -90,3 +90,10 @@ requirements, contracts, technology guidance, and connected components.
 Use these as the primary brief when implementing or modifying a component.
 
 - **Frontend SPA (React)**: [`.nodespec/tasks/frontend-spa-react-b892d335.task.md`](./.nodespec/tasks/frontend-spa-react-b892d335.task.md)
+
+## Test Plans
+
+Each requirement has a test plan documenting acceptance criteria assessments,
+recommended test types, framework suggestions, and test scenarios.
+
+- **Frontend SPA (React)**: [`.nodespec/tests/REQ-004-frontend.tests.md`](./.nodespec/tests/REQ-004-frontend.tests.md)
