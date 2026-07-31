@@ -19,7 +19,6 @@ component inventory, connection topology, and links to per-component task docume
 | KMS Customer Managed Key (CMK) | auth-provider | aws-kms | AWS Cloud Platform | --- | --- |
 | Lambda Email Worker (SQS → SES) | serverless-function | aws-lambda | AWS VPC (Private Network) | --- | --- |
 | ECS Fargate Backend (Multi-AZ) | backend-service | aws-fargate | AWS VPC (Private Network) | --- | --- |
-| Src | logical.component-library | --- | --- | --- | --- |
 | CloudFront CDN | cdn | aws-cloudfront | AWS Cloud Platform | --- | --- |
 | S3 Static Assets | object-storage | aws-s3 | AWS Cloud Platform | --- | --- |
 | Frontend SPA (React) | frontend-app | react | --- | --- | --- |
@@ -48,7 +47,6 @@ component inventory, connection topology, and links to per-component task docume
   - **S3 Static Assets** [aws-s3] (object-storage)
   - **SNS Alarm Topic (→ PagerDuty/Slack)** [aws-sns] (topic)
   - **SQS Email Queue (FIFO, DLQ)** [aws-sqs] (queue)
-- Src (logical.component-library)
 - Frontend SPA (React) (frontend-app)
 
 ## Connection Topology

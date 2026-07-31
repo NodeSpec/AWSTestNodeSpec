@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "b7aa4998151a5d31583239b6fb893d20d5a69537f246ef2805b0be69b255e305",
+  "modelHash": "1218348e0e6da906c253785a01cc805be2e7f7cbbb830d814044e446282e4186",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -234,13 +234,6 @@
         }
       ],
       "contentHash": "ce1a0313c46c808929a1121fea5afb16a1fa40b43ed6d5f7442e61ffdabe6bf3"
-    },
-    {
-      "id": "a935f132-256b-42f8-8862-ee4a19ac88b9",
-      "type": "logical.component-library",
-      "label": "Src",
-      "ports": [],
-      "contentHash": "99fb7d90c0bfa7f4ec07abe6436bdb095ed6118417f830751e3d804db0bba93e"
     },
     {
       "id": "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
@@ -932,5 +925,110 @@
       "kind": "task"
     }
   ],
-  "mappings": []
+  "mappings": [
+    {
+      "requirementId": "REQ-001",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-002",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-003",
+      "nodeIds": [
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-004",
+      "nodeIds": [
+        "b05afb1d-5911-4cb6-8d16-4e87c4fd9d77",
+        "b892d335-2866-437d-a241-f72ba71e050e"
+      ]
+    },
+    {
+      "requirementId": "REQ-005",
+      "nodeIds": [
+        "a25b66da-4930-40bb-ba40-cf15cd586846",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-006",
+      "nodeIds": [
+        "739b8f9e-9c68-42d8-aca3-466f429e8029",
+        "b6264032-4374-4191-a973-535b586cd757"
+      ]
+    },
+    {
+      "requirementId": "REQ-007",
+      "nodeIds": [
+        "48e9eea2-1f4b-4b6c-8839-7c4baa5e7675",
+        "8cb4acc9-8711-49e0-b5ee-69f22a90e1ab",
+        "db2ed488-71f8-426c-b10b-68a612d6ada0"
+      ]
+    },
+    {
+      "requirementId": "REQ-008",
+      "nodeIds": [
+        "492c203a-cb2e-40c8-a144-0ca0008fae6f"
+      ]
+    },
+    {
+      "requirementId": "REQ-009",
+      "nodeIds": [
+        "492c203a-cb2e-40c8-a144-0ca0008fae6f",
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76",
+        "a25b66da-4930-40bb-ba40-cf15cd586846"
+      ]
+    },
+    {
+      "requirementId": "REQ-010",
+      "nodeIds": [
+        "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
+        "50d764b4-b5d6-41ad-aaa3-b3b72f727d76"
+      ]
+    },
+    {
+      "requirementId": "REQ-011",
+      "nodeIds": [
+        "309abafe-578b-4eb4-bcf3-c029105a989f",
+        "87364769-d7f2-4655-8db0-4bd24895db84"
+      ]
+    },
+    {
+      "requirementId": "REQ-012",
+      "nodeIds": [
+        "51df189f-ca49-4bf5-b59b-4fecfd7ac6c3",
+        "5eb8d118-dc18-4859-b8e7-30d9c6d22193",
+        "cf85b5b6-df58-46c2-a235-90c2c854d789"
+      ]
+    },
+    {
+      "requirementId": "REQ-013",
+      "nodeIds": [
+        "739b8f9e-9c68-42d8-aca3-466f429e8029",
+        "c5f78cd9-d5b3-40fa-93ea-cf6cce453417"
+      ]
+    },
+    {
+      "requirementId": "REQ-016",
+      "nodeIds": [
+        "309abafe-578b-4eb4-bcf3-c029105a989f"
+      ]
+    },
+    {
+      "requirementId": "REQ-017",
+      "nodeIds": [
+        "31421050-9c6a-45cb-8ed7-b7523b9eec68"
+      ]
+    }
+  ]
 }
