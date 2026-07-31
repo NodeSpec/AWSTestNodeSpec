@@ -1,7 +1,7 @@
 {
   "modelVersion": 1,
   "generatedBy": "nodespec",
-  "modelHash": "52877bc4b1d8ef140056a919ebdd70f14b5e895b9917e225090a7719e8b60494",
+  "modelHash": "b7aa4998151a5d31583239b6fb893d20d5a69537f246ef2805b0be69b255e305",
   "nodes": [
     {
       "id": "2ff39140-074d-4dee-9552-1d7f2a4fe6f2",
@@ -610,98 +610,114 @@
       "id": "0c9ff75a-52e9-4398-b34d-8a1f282c18dd",
       "kind": "custom",
       "name": "Static Build Deployment (CI Upload to S3)",
-      "contentHash": "276cee0fcd8c0dc6d27fa0f579cb356848bb6b62b520929888404d6b1bf8cbb7"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "bdc0c0f9614b13976f136a79375d46df345778bf3533f836403400a4b2ce0c15"
     },
     {
       "id": "0f494e21-40d6-4302-9bd2-7452db5842ab",
       "kind": "custom",
       "name": "AWS WAF (Web Application Firewall)",
-      "contentHash": "9e436b0464314f395bb556e6a946e5e7c44b442ae8cf424581a1982ed96100c3"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "841ea18263e03c05708668e4f3d8333c50b9c45fa1fd995554f5a3e90dbf9621"
     },
     {
       "id": "1b04d36c-316e-48f1-9956-cf9e212ad75a",
       "kind": "custom",
       "name": "SNS Topic (CloudWatch Alarms → PagerDuty/Slack)",
-      "contentHash": "6a7d58f48f7ac8b1442d0a6d4b8079fcaf1654fd96377f4d2e1b0a82f1627c4e"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "d93188c7065763881151e1480d3e14263b779ed609032883364556787c0c90e0"
     },
     {
       "id": "28589f18-597f-447e-bda4-27c93e1d3cf2",
       "kind": "rest",
       "name": "REST API (ALB to Backend)",
       "specFormat": "openapi",
-      "contentHash": "8f1a1b0bbea0491a14c9a914ea96402c7224c70b15968dd1bc5dc9608b1431c3"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "db18abcf59724b6539431992ab65160bb45a57e6da080b127f5e48e983c1d80f"
     },
     {
       "id": "2f373c48-db17-47f4-b8c7-22d55bc295ae",
       "kind": "custom",
       "name": "Redis Cache (ElastiCache)",
-      "contentHash": "22867c7cdf75fa4a48d58c9d23c443602d23953bde1fd6b299d3692075e5d148"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "2c30e084525f2d4214fb962a3fe334d4c6a3b495913abd0b41513833ebba0a60"
     },
     {
       "id": "3434d4fa-f1cb-452f-b4e6-e246ce2e4910",
       "kind": "custom",
       "name": "SES Bounce/Complaint Notifications",
-      "contentHash": "8f5125a98699d7d2655aa09f75a6f6159f25e4bf6a7d416b3b4091af97c5647a"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "7dd3a89d3a7f391810d4fe9b906dbd0b334768317db33c61df7955e57e1fc2a5"
     },
     {
       "id": "5f0f81c8-057f-4d4f-b52a-d27af4695f29",
       "kind": "custom",
       "name": "AWS Secrets Manager (Credentials)",
-      "contentHash": "6523a87982996c4ff63e11c4b0f950a3ac2e6ff1ce1e8b65ef385520cc4cd187"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "6aaa1cd5b9ccab312311ee2aef6d16eee19628423eb43b3c52c0baa00e54dab8"
     },
     {
       "id": "6b13518d-03a7-4b7c-91c9-d91ac165c2b6",
       "kind": "amqp",
       "name": "SQS Email Queue (Async)",
-      "contentHash": "b94cebe70091cb9dce77c3974247dc298670951af9a2ff3297f34dcf32d77357"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "097765880edee6900fd5d46284c0dda793bb82abf485b7bbd763ce5ce9c01ac4"
     },
     {
       "id": "6ea33726-06b5-4803-9045-1dc9cf223b92",
       "kind": "custom",
       "name": "KMS Data Encryption (At-Rest)",
-      "contentHash": "a2ff2cc014120ffcae8c78719e3344e598fb1c521fc9c989625112972f82a0ae"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "1b1d24b66d0309cf9c7c94bbf7a0a8d4d8b26419112012f468166f03e33e7e21"
     },
     {
       "id": "70de2fbd-2d6f-4b01-a4d8-6060c575b13f",
       "kind": "sql",
       "name": "PostgreSQL Connection (Aurora)",
-      "contentHash": "cbe7b50adb73f0245b02f66d9827c3626311e7f51dfdbe0f242be8a4525ac8f4"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "9462b91c84f1633d36543a2bc47d14f049c36b1b9082f97827d19833d35232f8"
     },
     {
       "id": "78c78304-c380-4184-b022-3556fbbe67d1",
       "kind": "custom",
       "name": "CloudFront Distribution (Static Assets)",
-      "contentHash": "f80177cda6b8911997e476b498222469eb13d0b653ab35f717b64674a91f543e"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "3bbb9aaa9b3d240409e4c6554631ff8227b916284e63efbebeb69cf426baaea0"
     },
     {
       "id": "78d8463c-2b94-465e-b921-436362f3929a",
       "kind": "custom",
       "name": "Amazon SES (Email Sending)",
-      "contentHash": "01b834f562a5e7f751bce7eb01450e6855264aaad76b41506e2bca6373190fd3"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "dd6795451d46780015facc8257aa990051a67c979527a5988b5944201fb77215"
     },
     {
       "id": "c3953a31-f12f-478d-bcec-a80d4d9da31c",
       "kind": "custom",
       "name": "S3 Pre-signed URLs (File Upload)",
-      "contentHash": "22f299f28e543a91a75269044799fd9cbd095dcbe4ffca4175a5f2fdf2adff65"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "6ea6e3de06f3c5acaab6802ccd81e0baf084361875a3e221fedff10bb99f312d"
     },
     {
       "id": "c3d27631-3e47-4dff-991f-f80872ed69f6",
       "kind": "custom",
       "name": "CloudWatch Logs (Structured JSON)",
-      "contentHash": "804ffa33dfaf2d06518aaea8beb8ec3d792c0bf23fde96601bd5f1e0591957c5"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "af428d7243bf436429199fc3edf2343c62dc9e08bd90b9e4018a7aab4137db56"
     },
     {
       "id": "e8b57127-e37b-412f-891c-4b535db38b97",
       "kind": "custom",
       "name": "AWS X-Ray (Distributed Tracing)",
-      "contentHash": "75c28928527b86490d93e039475a53674c64bc17b3a48bc98b78f92e58097f1f"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "f3db647d9e3f6b2862de725b7064c0b7e6d44653ab40f2b648d10c84c110cadc"
     },
     {
       "id": "f7e87f85-da92-4c01-8d64-581c7e7c1912",
       "kind": "custom",
       "name": "IAM Role Assumption (Task/Execution Role)",
-      "contentHash": "3b41a505db1e3771e82001b7c9d6c668ef0e3bb21768ab2fb266d03be8f91211"
+      "schemaHash": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "contentHash": "cf323f5173a47cc74324d99058ea3781d4a2c4f33fb2fd7da158ee9adc1db89a"
     }
   ],
   "artifacts": [
@@ -733,8 +749,7 @@
       "id": "1c1b6dea-ef95-4e32-ba8a-9791042a5435",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tests/REQ-004-frontend.tests.md",
-      "kind": "test-plan",
-      "contentHash": "00000000237cd980"
+      "kind": "test-plan"
     },
     {
       "id": "2106549b-02e7-47cf-86da-f495e2515c75",
@@ -782,8 +797,7 @@
       "id": "608a93d5-64f9-40db-ac52-ce8c54bb39c3",
       "nodeId": "b892d335-2866-437d-a241-f72ba71e050e",
       "path": ".nodespec/tasks/frontend-spa-react-b892d335.task.md",
-      "kind": "task",
-      "contentHash": "000000002c9bbebb"
+      "kind": "task"
     },
     {
       "id": "63f566ce-8083-43c3-a210-f1c4108ae6d3",
